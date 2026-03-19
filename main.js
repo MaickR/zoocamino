@@ -138,20 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
     stickyBar.classList.toggle('visible', window.scrollY > 200);
   }, { passive: true });
 
-  // ── Back to top ───────────────────────────────────────
-  const backToTop = document.getElementById('back-to-top');
-  window.addEventListener('scroll', () => {
-    if (!backToTop) return;
-    backToTop.classList.toggle('visible', window.scrollY > 500);
-  }, { passive: true });
-
-  if (backToTop) {
-    backToTop.addEventListener('click', e => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
   // ── Contact form (FormSubmit.co → ntcusa@nicolastena.com) ───
   const contactForm = document.getElementById('contactForm');
   const submitBtn   = document.getElementById('submitBtn');
@@ -183,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error('server-error');
         }
       } catch {
-        submitBtn.textContent = '❌ Error. Escríbenos a info@zococamino.com';
+        submitBtn.textContent = '❌ Error. Escríbenos a ntcusa@nicolastena.com';
         submitBtn.style.background = '#cc3333';
         setTimeout(() => {
           submitBtn.textContent = 'Enviar Solicitud →';
@@ -191,6 +177,52 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.style.background = '';
         }, 5000);
       }
+    });
+  }
+
+  // ── Gallery Lightbox ──────────────────────────────────
+  const lightbox    = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCap = document.getElementById('lightbox-caption');
+  const lbClose     = document.getElementById('lightbox-close');
+  const lbPrev      = document.getElementById('lightbox-prev');
+  const lbNext      = document.getElementById('lightbox-next');
+
+  if (lightbox) {
+    const items = Array.from(document.querySelectorAll('.gallery-item'));
+    let currentIdx = 0;
+
+    const openLightbox = (idx) => {
+      currentIdx = idx;
+      const img = items[idx].querySelector('img');
+      const cap = items[idx].querySelector('.gallery-caption');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCap.textContent = cap ? cap.textContent : '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lightbox.focus();
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    };
+
+    const showPrev = () => { currentIdx = (currentIdx - 1 + items.length) % items.length; openLightbox(currentIdx); };
+    const showNext = () => { currentIdx = (currentIdx + 1) % items.length; openLightbox(currentIdx); };
+
+    items.forEach((item, idx) => item.addEventListener('click', () => openLightbox(idx)));
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+    lbNext.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
     });
   }
 

@@ -1,159 +1,77 @@
+﻿# NTC LUXURY TRAVELS & DREAMS
 
-<div align="center">
+Sitio web oficial de la experiencia **Camino Francés VIP en Bicicleta 2026**.
 
-# ZOCOCAMINO
+Una landing page elegante y orientada a conversión para presentar el programa, resolver dudas y captar solicitudes de agencias y viajeros interesados en un servicio premium.
 
-### Experiencias VIP en Bicicleta · 2026
+## Resumen del Proyecto
 
-*Landing page premium para agencias de viaje — pura web, cero dependencias*
+Este proyecto está desarrollado como sitio estático, con enfoque **mobile-first**, alto rendimiento y mantenimiento simple.
 
----
+- Marca: NTC Luxury Travels & Dreams
+- Programa activo: Camino Francés VIP (León → Santiago)
+- Temporada: Septiembre 2026
+- Contacto principal: `ntcusa@nicolastena.com`
+- WhatsApp: `+1 408-609-0027`
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Mobile First](https://img.shields.io/badge/Mobile--First-✓-success?style=flat-square)
-![Sin dependencias](https://img.shields.io/badge/Dependencias-0-brightgreen?style=flat-square)
+## Propuesta de Valor
 
-</div>
+- Experiencia curada con enfoque VIP y atención personalizada.
+- Narrativa visual premium para inspirar confianza y deseo de reserva.
+- Flujo claro de contacto mediante formulario y accesos directos a WhatsApp.
+- Diseño responsive pensado para móviles, tablets y escritorio.
 
----
+## Stack Tecnológico
 
-## Acerca del Proyecto
+- HTML5 semántico
+- CSS3 (custom properties, grid, flexbox, media queries)
+- JavaScript vanilla (interacciones, navegación, lightbox, formulario)
 
-Zococamino es una operadora de cicloturismo con sede en España fundada por latinoamericanos. Ofrecemos programas VIP todo incluido para agencias de viaje de América Latina y España: guías expertos que pedalean contigo, carro de apoyo Mercedes siempre presente, alojamiento en hoteles al final de cada etapa, y un trato cercano de calidez latina en cada pedaleo.
+No utiliza frameworks ni dependencias de build.
 
-Esta landing page es el canal comercial B2B hacia agencias. Está construida con **HTML5, CSS3 y JavaScript puros** — sin frameworks, sin librerías, sin Build steps. Un solo `git clone` y funciona.
+## Características Principales
 
----
+- Navegación fija optimizada para todos los tamaños de pantalla.
+- Hero de alto impacto visual con jerarquía tipográfica editorial.
+- Secciones de programa, galería y momentos del viaje.
+- Lightbox para visualización de imágenes en pantalla completa.
+- FAQ y bloque de contacto con formulario funcional.
+- Integración directa con FormSubmit para recepción de solicitudes.
 
-## Programas 2026
+## Estructura del Repositorio
 
-| Ruta | Trayecto | Distancia | Salida |
-|------|----------|-----------|--------|
-| **Camino Francés VIP** | León → Santiago de Compostela | 340 km | 4 Sep 2026 |
-| **Camino Portugués por la Costa** | Oporto → Santiago de Compostela | 280 km | TBD 2026 |
-| **Europa del Este en E-Bike** | Praga → Budapest | 800 km | TBD 2026 |
-
----
-
-## Características Técnicas
-
-### Rendimiento
-- **Fuentes asíncronas** — `preload/onload` para Google Fonts, sin bloqueo de render
-- **`will-change: transform`** en elementos animados para composición GPU
-- **IntersectionObserver** con `threshold: 0.15` y `rootMargin: -80px` para animaciones eficientes
-- **`scroll-behavior`** manejado vía JS con offset de navbar dinámico
-
-### Diseño
-- **Mobile-first CSS** — diseño base en columna única, expansión progresiva desde 640 px
-- **CSS Custom Properties** — sistema completo de tokens (`--gold`, `--dark`, `--warm`, `--nav-height`, `--ease`)
-- **Mapas SVG animados** — rutas trazadas con `stroke-dashoffset` y `pathLength="100"`, activadas por scroll
-- **Paleta editorial oscura** — fondo `#0E0E0E`, dorado `#D4A843`, serif Playfair Display
-
-### Componentes
-- Navbar sticky con menú móvil hamburguesa y backdrop blur
-- Hero con título cinemático y CTA anclado
-- Sección "¿Por qué Zococamino?" con features grid responsivo
-- Pestañas de programas con 3 paneles completos (precios, mapa SVG, detalle)
-- Bloques de precio rediseñados con contexto comparativo, urgencia y garantía
-- Sección FAQ con accordion CSS grid (`grid-template-rows: 0fr → 1fr`)
-- Formulario de contacto con envío real via **FormSubmit.co** (fetch + estados)
-- Botón flotante de WhatsApp con animación pulse y tooltip
-- Barra sticky móvil con soporte para notch (iPhone) via `env(safe-area-inset-bottom)`
-- Botón "Volver arriba" con aparición suave al scroll
-- Accesibilidad: `focus-visible`, `aria-expanded`, `aria-label`, roles semánticos
-
----
-
-## Estructura
-
-```
+```text
 zoocamino/
-├── index.html      # Markup completo — 1 050 líneas
-├── styles.css      # Estilos mobile-first — ~1 550 líneas
-├── main.js         # Comportamiento — ~200 líneas (vanilla JS)
-└── README.md
+├── index.html
+├── styles.css
+├── main.js
+├── README.md
+└── img/
 ```
 
----
+## Ejecución Local
 
-## Inicio Rápido
+1. Clonar el repositorio:
+   `git clone https://github.com/MaickR/zoocamino.git`
+2. Entrar en la carpeta del proyecto.
+3. Abrir `index.html` en el navegador.
 
-```bash
-# Clonar el repositorio
-git clone https://github.com/MaickR/zoocamino.git
+Al ser estático, no requiere `npm install` ni servidor de desarrollo obligatorio.
 
-# Abrir directamente en el navegador
-cd zoocamino
-start index.html          # Windows
-open index.html           # macOS
-xdg-open index.html       # Linux
-```
+## Mantenimiento de Contenido
 
-No se necesita servidor, bundler ni `npm install`. El proyecto desplegado puede servirse desde cualquier hosting estático: **GitHub Pages, Netlify, Vercel, Cloudflare Pages**.
+Para actualizar la oferta y contenidos:
 
----
+- Textos y estructura: `index.html`
+- Estilos y responsive: `styles.css`
+- Comportamiento e interacciones: `main.js`
+- Recursos visuales: carpeta `img/`
 
-## Configuración del Formulario
+## Contacto Comercial
 
-El formulario usa [FormSubmit.co](https://formsubmit.co) — servicio gratuito, sin registro.
-
-Los envíos llegan a `ntcusa@nicolastena.com`.
-
-> **Primera vez:** FormSubmit enviará un correo de activación. Solo haz clic en el enlace para activar y los envíos funcionarán automáticamente.
-
-Para cambiar el destinatario, editar esta línea en `index.html`:
-
-```html
-<form action="https://formsubmit.co/ajax/tu@email.com" method="POST">
-```
+- Email: `ntcusa@nicolastena.com`
+- WhatsApp: `https://wa.me/14086090027`
 
 ---
 
-## Variables de Diseño
-
-Todas las decisiones visuales están centralizadas en `:root` dentro de `styles.css`:
-
-```css
-:root {
-  --gold:             #D4A843;
-  --dark:             #0E0E0E;
-  --dark-2:           #111111;
-  --dark-3:           #1A1A1A;
-  --warm:             #F5F0E8;
-  --accent-camino:    #D4A843;
-  --accent-portugues: #2E7D6E;
-  --accent-europa:    #5B4FCF;
-  --nav-height:       60px;
-  --ease:             cubic-bezier(0.4, 0, 0.2, 1);
-}
-```
-
----
-
-## Tecnologías
-
-| Rol | Tecnología |
-|-----|------------|
-| Markup | HTML5 semántico |
-| Estilos | CSS3 · Custom Properties · Grid · Flexbox |
-| Comportamiento | JavaScript ES2020 · `fetch` · IntersectionObserver |
-| Tipografía | Bebas Neue · Playfair Display · DM Sans (Google Fonts) |
-| Formulario | FormSubmit.co (sin backend propio) |
-| Animaciones SVG | `stroke-dasharray` / `stroke-dashoffset` inline |
-
----
-
-## Contacto
-
-**Zococamino** · [info@zococamino.com](mailto:info@zococamino.com)  
-WhatsApp: [+34 646 840 877](https://wa.me/34646840877)
-
----
-
-<div align="center">
-
-*Hecho con dedicación para llevar la calidez latina a cada etapa del Camino.*
-
-</div>
+Desarrollado para proyectar una presencia digital sobria, premium y confiable para NTC Luxury Travels & Dreams.
