@@ -1,77 +1,84 @@
-﻿# NTC LUXURY TRAVELS & DREAMS
+﻿# NTC Luxury Travels & Dreams
 
-Sitio web oficial de la experiencia **Camino Francés VIP en Bicicleta 2026**.
+Sitio web oficial de la experiencia **Camino Frances VIP en Bicicleta 2026**.
 
-Una landing page elegante y orientada a conversión para presentar el programa, resolver dudas y captar solicitudes de agencias y viajeros interesados en un servicio premium.
+Este proyecto presenta una landing page de alto impacto orientada a conversion, disenada para agencias de viaje y viajeros premium interesados en el Camino de Santiago.
 
-## Resumen del Proyecto
-
-Este proyecto está desarrollado como sitio estático, con enfoque **mobile-first**, alto rendimiento y mantenimiento simple.
+## Vision General
 
 - Marca: NTC Luxury Travels & Dreams
-- Programa activo: Camino Francés VIP (León → Santiago)
-- Temporada: Septiembre 2026
-- Contacto principal: `ntcusa@nicolastena.com`
-- WhatsApp: `+1 408-609-0027`
+- Programa destacado: Camino Frances VIP (Leon a Santiago)
+- Temporada: septiembre de 2026
+- Tipo de sitio: estatico, rapido y de mantenimiento simple
+
+## Versiones de Idioma
+
+El sitio es bilingue y cuenta con selector de idioma integrado en la navegacion:
+
+- [index.html](index.html): version en ingles (idioma por defecto)
+- [index-es.html](index-es.html): version en espanol
 
 ## Propuesta de Valor
 
-- Experiencia curada con enfoque VIP y atención personalizada.
-- Narrativa visual premium para inspirar confianza y deseo de reserva.
-- Flujo claro de contacto mediante formulario y accesos directos a WhatsApp.
-- Diseño responsive pensado para móviles, tablets y escritorio.
+- Experiencia VIP curada, con atencion personalizada y acompanamiento constante.
+- Narrativa visual premium para transmitir confianza, prestigio y deseo de reserva.
+- Flujo de contacto claro mediante formulario y acceso directo a WhatsApp.
+- Diseno responsive con enfoque mobile-first para una experiencia solida en cualquier dispositivo.
 
-## Stack Tecnológico
+## Tecnologias
 
-- HTML5 semántico
+- HTML5 semantico
 - CSS3 (custom properties, grid, flexbox, media queries)
-- JavaScript vanilla (interacciones, navegación, lightbox, formulario)
+- JavaScript vanilla para interacciones y logica de interfaz
 
-No utiliza frameworks ni dependencias de build.
+No requiere frameworks ni herramientas de build.
 
-## Características Principales
+## Funcionalidades Destacadas
 
-- Navegación fija optimizada para todos los tamaños de pantalla.
-- Hero de alto impacto visual con jerarquía tipográfica editorial.
-- Secciones de programa, galería y momentos del viaje.
-- Lightbox para visualización de imágenes en pantalla completa.
-- FAQ y bloque de contacto con formulario funcional.
-- Integración directa con FormSubmit para recepción de solicitudes.
+- Navegacion fija adaptable a desktop y mobile.
+- Hero editorial con jerarquia tipografica y llamadas a la accion.
+- Secciones de programa, galeria visual, testimonios y FAQ.
+- Lightbox para visualizacion de imagenes.
+- Formulario de contacto integrado con FormSubmit.
+- Boton flotante de WhatsApp y barra movil de accion rapida.
 
 ## Estructura del Repositorio
 
 ```text
 zoocamino/
-├── index.html
-├── styles.css
-├── main.js
-├── README.md
-└── img/
+|-- index.html
+|-- index-es.html
+|-- styles.css
+|-- main.js
+|-- README.md
+`-- img/
 ```
 
-## Ejecución Local
+## Ejecucion Local
 
-1. Clonar el repositorio:
-   `git clone https://github.com/MaickR/zoocamino.git`
-2. Entrar en la carpeta del proyecto.
-3. Abrir `index.html` en el navegador.
+1. Clona el repositorio:
 
-Al ser estático, no requiere `npm install` ni servidor de desarrollo obligatorio.
+```bash
+git clone https://github.com/MaickR/zoocamino.git
+```
 
-## Mantenimiento de Contenido
+2. Entra a la carpeta del proyecto.
+3. Abre [index.html](index.html) en tu navegador.
 
-Para actualizar la oferta y contenidos:
+Al ser un sitio estatico, no requiere instalacion de dependencias.
 
-- Textos y estructura: `index.html`
-- Estilos y responsive: `styles.css`
-- Comportamiento e interacciones: `main.js`
-- Recursos visuales: carpeta `img/`
+## Mantenimiento
+
+- Contenido y estructura: [index.html](index.html) y [index-es.html](index-es.html)
+- Estilos visuales y responsive: [styles.css](styles.css)
+- Comportamiento e interacciones: [main.js](main.js)
+- Recursos multimedia: carpeta [img/](img)
 
 ## Contacto Comercial
 
-- Email: `ntcusa@nicolastena.com`
-- WhatsApp: `https://wa.me/14086090027`
+- Email: ntcusa@nicolastena.com
+- WhatsApp: https://wa.me/14086090027
 
 ---
 
-Desarrollado para proyectar una presencia digital sobria, premium y confiable para NTC Luxury Travels & Dreams.
+Proyecto desarrollado para comunicar una presencia digital sobria, premium y confiable para NTC Luxury Travels & Dreams.

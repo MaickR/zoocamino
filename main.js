@@ -4,6 +4,7 @@
 ============================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const isEnglish = document.documentElement.lang === 'en';
 
   // ── Nav: compact on scroll ────────────────────────────
   const navbar = document.getElementById('navbar');
@@ -18,13 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeMenu = () => {
     navbar.classList.remove('mobile-open');
     hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.setAttribute('aria-label', 'Abrir menú');
+    hamburger.setAttribute('aria-label', isEnglish ? 'Open menu' : 'Abrir menú');
   };
 
   hamburger.addEventListener('click', () => {
     const isOpen = navbar.classList.toggle('mobile-open');
     hamburger.setAttribute('aria-expanded', String(isOpen));
-    hamburger.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    hamburger.setAttribute('aria-label', isOpen
+      ? (isEnglish ? 'Close menu' : 'Cerrar menú')
+      : (isEnglish ? 'Open menu' : 'Abrir menú'));
   });
 
   document.querySelectorAll('.nav-links a').forEach(link => {
@@ -145,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', async e => {
       e.preventDefault();
-      submitBtn.textContent = '⏳ Enviando solicitud…';
+      submitBtn.textContent = isEnglish ? '⏳ Sending request...' : '⏳ Enviando solicitud…';
       submitBtn.disabled = true;
 
       try {
@@ -157,11 +160,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await res.json();
 
         if (res.ok && data.success === 'true') {
-          submitBtn.textContent = '✅ Recibido. Te contactamos en menos de 24 horas.';
+          submitBtn.textContent = isEnglish
+            ? '✅ Received. We will contact you in less than 24 hours.'
+            : '✅ Recibido. Te contactamos en menos de 24 horas.';
           submitBtn.style.background = '#2EAA5C';
           contactForm.reset();
           setTimeout(() => {
-            submitBtn.textContent = 'Enviar Solicitud →';
+            submitBtn.textContent = isEnglish ? 'Send Request →' : 'Enviar Solicitud →';
             submitBtn.disabled = false;
             submitBtn.style.background = '';
           }, 5500);
@@ -169,10 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error('server-error');
         }
       } catch {
-        submitBtn.textContent = '❌ Error. Escríbenos a ntcusa@nicolastena.com';
+        submitBtn.textContent = isEnglish
+          ? '❌ Error. Write to ntcusa@nicolastena.com'
+          : '❌ Error. Escríbenos a ntcusa@nicolastena.com';
         submitBtn.style.background = '#cc3333';
         setTimeout(() => {
-          submitBtn.textContent = 'Enviar Solicitud →';
+          submitBtn.textContent = isEnglish ? 'Send Request →' : 'Enviar Solicitud →';
           submitBtn.disabled = false;
           submitBtn.style.background = '';
         }, 5000);
