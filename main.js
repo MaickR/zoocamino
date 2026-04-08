@@ -141,49 +141,48 @@ document.addEventListener('DOMContentLoaded', () => {
     stickyBar.classList.toggle('visible', window.scrollY > 200);
   }, { passive: true });
 
-  // ── Contact form (FormSubmit.co → ntcusa@nicolastena.com) ───
+  // ── Contact form → WhatsApp ─────────────────────────────
   const contactForm = document.getElementById('contactForm');
   const submitBtn   = document.getElementById('submitBtn');
+  const WA_NUMBER   = '14086090027';
 
   if (contactForm) {
-    contactForm.addEventListener('submit', async e => {
+    contactForm.addEventListener('submit', e => {
       e.preventDefault();
-      submitBtn.textContent = isEnglish ? '⏳ Sending request...' : '⏳ Enviando solicitud…';
-      submitBtn.disabled = true;
 
-      try {
-        const res = await fetch(contactForm.action, {
-          method: 'POST',
-          body: new FormData(contactForm),
-          headers: { Accept: 'application/json' }
-        });
-        const data = await res.json();
+      const nombre   = contactForm.querySelector('[name="nombre"]').value.trim();
+      const email    = contactForm.querySelector('[name="email"]').value.trim();
+      const programa = contactForm.querySelector('[name="programa"]');
+      const progText = programa ? programa.options[programa.selectedIndex].text : '';
+      const mensaje  = contactForm.querySelector('[name="mensaje"]').value.trim();
 
-        if (res.ok && data.success === 'true') {
-          submitBtn.textContent = isEnglish
-            ? '✅ Received. We will contact you in less than 24 hours.'
-            : '✅ Recibido. Te contactamos en menos de 24 horas.';
-          submitBtn.style.background = '#2EAA5C';
-          contactForm.reset();
-          setTimeout(() => {
-            submitBtn.textContent = isEnglish ? 'Send Request →' : 'Enviar Solicitud →';
-            submitBtn.disabled = false;
-            submitBtn.style.background = '';
-          }, 5500);
-        } else {
-          throw new Error('server-error');
-        }
-      } catch {
+      if (!nombre || !email) {
         submitBtn.textContent = isEnglish
-          ? '❌ Error. Write to ntcusa@nicolastena.com'
-          : '❌ Error. Escríbenos a ntcusa@nicolastena.com';
+          ? '⚠️ Please fill in name and email'
+          : '⚠️ Por favor completa nombre y email';
         submitBtn.style.background = '#cc3333';
         setTimeout(() => {
-          submitBtn.textContent = isEnglish ? 'Send Request →' : 'Enviar Solicitud →';
-          submitBtn.disabled = false;
+          submitBtn.textContent = isEnglish ? 'Send via WhatsApp →' : 'Enviar por WhatsApp →';
           submitBtn.style.background = '';
-        }, 5000);
+        }, 3000);
+        return;
       }
+
+      const waMsg = isEnglish
+        ? `Hello, I am requesting information from the NTC Luxury Travels & Dreams website.\n\n*Name:* ${nombre}\n*Email:* ${email}\n*Program:* ${progText}${mensaje ? '\n*Message:* ' + mensaje : ''}`
+        : `Hola, solicito información desde la web de NTC Luxury Travels & Dreams.\n\n*Nombre:* ${nombre}\n*Email:* ${email}\n*Programa:* ${progText}${mensaje ? '\n*Mensaje:* ' + mensaje : ''}`;
+
+      const waURL = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(waMsg);
+
+      submitBtn.textContent = isEnglish ? '✅ Opening WhatsApp...' : '✅ Abriendo WhatsApp…';
+      submitBtn.style.background = '#25D366';
+      window.open(waURL, '_blank', 'noopener,noreferrer');
+
+      contactForm.reset();
+      setTimeout(() => {
+        submitBtn.textContent = isEnglish ? 'Send via WhatsApp →' : 'Enviar por WhatsApp →';
+        submitBtn.style.background = '';
+      }, 4000);
     });
   }
 
@@ -196,16 +195,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const lbNext      = document.getElementById('lightbox-next');
 
   if (lightbox) {
-    const items = Array.from(document.querySelectorAll('.gallery-item'));
+    const items = Array.from(document.querySelectorAll('.gallery-item, .bike-gallery-item'));
     let currentIdx = 0;
 
     const openLightbox = (idx) => {
       currentIdx = idx;
       const img = items[idx].querySelector('img');
-      const cap = items[idx].querySelector('.gallery-caption');
+      const cap = items[idx].querySelector('.gallery-caption') || items[idx].querySelector('figcaption');
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
-      lightboxCap.textContent = cap ? cap.textContent : '';
+      lightboxCap.textContent = cap ? cap.textContent : (img.alt || '');
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
       lightbox.focus();

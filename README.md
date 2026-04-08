@@ -1,84 +1,79 @@
 ﻿# NTC Luxury Travels & Dreams
 
-Sitio web oficial de la experiencia **Camino Frances VIP en Bicicleta 2026**.
+Sitio web oficial de la experiencia **Camino Francés VIP en Bicicleta 2026**.
 
-Este proyecto presenta una landing page de alto impacto orientada a conversion, disenada para agencias de viaje y viajeros premium interesados en el Camino de Santiago.
-
-## Vision General
-
-- Marca: NTC Luxury Travels & Dreams
-- Programa destacado: Camino Frances VIP (Leon a Santiago)
-- Temporada: septiembre de 2026
-- Tipo de sitio: estatico, rapido y de mantenimiento simple
-
-## Versiones de Idioma
-
-El sitio es bilingue y cuenta con selector de idioma integrado en la navegacion:
-
-- [index.html](index.html): version en ingles (idioma por defecto)
-- [index-es.html](index-es.html): version en espanol
-
-## Propuesta de Valor
-
-- Experiencia VIP curada, con atencion personalizada y acompanamiento constante.
-- Narrativa visual premium para transmitir confianza, prestigio y deseo de reserva.
-- Flujo de contacto claro mediante formulario y acceso directo a WhatsApp.
-- Diseno responsive con enfoque mobile-first para una experiencia solida en cualquier dispositivo.
-
-## Tecnologias
-
-- HTML5 semantico
-- CSS3 (custom properties, grid, flexbox, media queries)
-- JavaScript vanilla para interacciones y logica de interfaz
-
-No requiere frameworks ni herramientas de build.
-
-## Funcionalidades Destacadas
-
-- Navegacion fija adaptable a desktop y mobile.
-- Hero editorial con jerarquia tipografica y llamadas a la accion.
-- Secciones de programa, galeria visual, testimonios y FAQ.
-- Lightbox para visualizacion de imagenes.
-- Formulario de contacto integrado con FormSubmit.
-- Boton flotante de WhatsApp y barra movil de accion rapida.
-
-## Estructura del Repositorio
-
-```text
-zoocamino/
-|-- index.html
-|-- index-es.html
-|-- styles.css
-|-- main.js
-|-- README.md
-`-- img/
-```
-
-## Ejecucion Local
-
-1. Clona el repositorio:
-
-```bash
-git clone https://github.com/MaickR/zoocamino.git
-```
-
-2. Entra a la carpeta del proyecto.
-3. Abre [index.html](index.html) en tu navegador.
-
-Al ser un sitio estatico, no requiere instalacion de dependencias.
-
-## Mantenimiento
-
-- Contenido y estructura: [index.html](index.html) y [index-es.html](index-es.html)
-- Estilos visuales y responsive: [styles.css](styles.css)
-- Comportamiento e interacciones: [main.js](main.js)
-- Recursos multimedia: carpeta [img/](img)
-
-## Contacto Comercial
-
-- Email: ntcusa@nicolastena.com
-- WhatsApp: https://wa.me/14086090027
+Landing page de alto impacto orientada a conversión, diseñada para viajeros premium interesados en recorrer el Camino de Santiago en bicicleta con acompañamiento VIP.
 
 ---
 
-Proyecto desarrollado para comunicar una presencia digital sobria, premium y confiable para NTC Luxury Travels & Dreams.
+## Visión General
+
+| Detalle | Valor |
+|---------|-------|
+| **Marca** | NTC Luxury Travels & Dreams |
+| **Programa** | Camino Francés VIP — León → Santiago de Compostela |
+| **Temporada** | 4 – 12 septiembre 2026 |
+| **Tipo de sitio** | Estático · Bilingüe (EN / ES) · Mobile-first |
+
+## Idiomas
+
+Selector de idioma integrado en la navegación:
+
+- [`index.html`](index.html) — Inglés (por defecto)
+- [`index-es.html`](index-es.html) — Español
+
+## Stack Tecnológico
+
+- **HTML5** semántico con accesibilidad (ARIA, roles)
+- **CSS3** — Custom properties, Grid, Flexbox, `clamp()`, media queries mobile-first
+- **JavaScript vanilla** — Sin frameworks ni dependencias externas
+
+No requiere build tools ni instalación de paquetes.
+
+## Funcionalidades
+
+- Navegación fija adaptable (desktop / mobile hamburger)
+- Hero editorial con tipografía premium y CTAs
+- Secciones: programa, itinerario interactivo, galería, testimonios, FAQ
+- Galería de experiencia en bicicleta con lightbox interactivo
+- Galería principal de imágenes con lightbox y navegación por teclado
+- Formulario de contacto → envío directo a WhatsApp con datos prellenados
+- Botón flotante de WhatsApp con safe-area para dispositivos con notch
+- Barra móvil sticky de acción rápida
+- Animaciones de revelado al scroll (Intersection Observer)
+- Diseño responsive mobile-first (breakpoints: 480, 640, 768, 900, 1024, 1100, 1200px)
+
+## Estructura
+
+```
+zoocamino/
+├── index.html          # Página principal (inglés)
+├── index-es.html       # Página principal (español)
+├── styles.css          # Hoja de estilos compartida
+├── main.js             # Lógica e interacciones
+├── README.md
+└── img/                # Recursos multimedia
+    ├── NTC-logo-bg.png
+    ├── ntc-travel-*.png        # Galería de viajeros
+    ├── ntc-travel-bike-*.png   # Galería de ciclistas
+    ├── ntc-travel-experience-*.png
+    └── ...
+```
+
+## Ejecución Local
+
+```bash
+git clone https://github.com/MaickR/zoocamino.git
+cd zoocamino
+```
+
+Abre `index.html` en el navegador. No requiere servidor ni dependencias.
+
+## Contacto
+
+- **WhatsApp:** [+1 (408) 609-0027](https://wa.me/14086090027)
+- **Email:** ntcusa@nicolastena.com
+
+---
+
+Desarrollado para NTC Luxury Travels & Dreams.
