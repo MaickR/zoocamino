@@ -1123,7 +1123,7 @@ section {
 
 .stage {
   display: grid;
-  grid-template-columns: 56px 1fr auto;
+  grid-template-columns: minmax(3.75rem, auto) 1fr auto;
   gap: 1rem;
   padding: 1rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -1137,10 +1137,36 @@ section {
 }
 
 .stage-num {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-width: 3.5rem;
+  line-height: 1;
+}
+
+.stage-day {
   font-family: var(--font-display);
   font-size: 1.8rem;
-  color: rgba(255, 255, 255, 0.1);
-  line-height: 1;
+  color: var(--gold);
+}
+
+.stage-date {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.45);
+  white-space: nowrap;
+}
+
+.itinerary-legend {
+  font-size: 0.75rem;
+  color: rgba(245, 240, 232, 0.45);
+  margin: -0.25rem 0 1.25rem;
+  letter-spacing: 0.03em;
 }
 
 .stage-info h4 {
@@ -1169,12 +1195,13 @@ section {
 
 @media (min-width: 640px) {
   .stage {
-    grid-template-columns: 80px 1fr auto;
+    grid-template-columns: minmax(4.5rem, auto) 1fr auto;
     gap: 1.5rem;
     padding: 1.2rem 0;
   }
 
-  .stage-num { font-size: 2rem; }
+  .stage-day { font-size: 2rem; }
+  .stage-date { font-size: 0.68rem; }
   .stage-km  { font-size: 1.5rem; }
 }
 
